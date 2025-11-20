@@ -173,6 +173,7 @@ body {
         }
 
         .chat-btn {
+            margin-bottom: 55px;
             width: 60px;
             height: 60px;
             border-radius: 50%;
