@@ -1,5 +1,4 @@
-/* Custom Cursors & Scrollbar */
-        body {
+body {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>'), auto;
         }
         ::-webkit-scrollbar {
@@ -77,11 +76,14 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            pointer-events: none; /* FIXED: Let clicks pass through the container */
         }
 
         .chat-window {
             width: 350px;
+            max-width: 90vw; /* FIXED: Ensure it fits on small mobile screens */
             height: 500px;
+            max-height: 70vh; /* FIXED: Prevent it from being too tall on mobile landscape */
             background: rgba(15, 15, 15, 0.95);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(249, 115, 22, 0.3);
@@ -95,13 +97,13 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             opacity: 0;
             transform: scale(0.8) translateY(20px);
-            pointer-events: none;
+            pointer-events: none; /* Initially hidden and non-interactive */
         }
 
         .chat-window.open {
             opacity: 1;
             transform: scale(1) translateY(0);
-            pointer-events: all;
+            pointer-events: all; /* FIXED: Make interactive when open */
         }
 
         .chat-header {
@@ -171,7 +173,6 @@
         }
 
         .chat-btn {
-            margin-bottom: 55px; /* was 80px — lowered to move the button up */
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -185,6 +186,7 @@
             box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
             transition: transform 0.2s;
             border: none;
+            pointer-events: auto; /* FIXED: Ensure button is always clickable */
         }
 
         .chat-btn:hover {
