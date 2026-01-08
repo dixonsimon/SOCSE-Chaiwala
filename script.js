@@ -116,7 +116,7 @@
         const chatTrigger = document.getElementById("chat-trigger");
         const chatInput = document.getElementById("chat-input");
         const chatMessages = document.getElementById("chat-messages");
-        const apiKey = "AIzaSyCCCSFYuK008bDQ5kISpuGdPVfhKJi0OJI"; // Environment will provide this
+        const apiKey = "AIzaSyCIbp6-DVxorkVP_w1TpnUhvup7E-J4RIU"; // Environment will provide this
 
         function toggleChat() {
             chatWindow.classList.toggle("open");
